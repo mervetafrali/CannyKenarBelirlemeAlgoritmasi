@@ -62,17 +62,17 @@ Canny kenar belirleme algoritması; görüntüde keskin olarak belirlenmiş kena
 Kenar bulma işlemi için görüntüde yumuşatma yapılmalıdır. Gaussian filtresi görüntüleri bulanıklaştırmak/yumuşatmak ve görüntü üzerindeki gürültüyü arındırmak için kullanılır http://www.omertaban.com/2013/05/14/goruntu-bozunmalari-ve-duzeltme-teknikleri/#more-1318[[6]]. +
 Gaussian fonksiyonu: +
 
-image::1.png[GaussianFonksiyonu] 
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/1.png[GaussianFonksiyonu] 
 
 Denklemde kullanılan σ değeri dağılımın standart sapmadır. Dağılımın ortalama 0 değere sahip olduğu varsayılmaktadır. +
 
-image::2.png[GaussDağılımı] 
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/2.png[GaussDağılımı] 
 
 Gauss dağılımının grafiği Şekil 1’de gösterilmektedir. https://www.cs.auckland.ac.nz/courses/compsci373s1c/PatricesLectures/Gaussian%20Filtering_1up.pdf[[4]] +
 
 Gaussian fonksiyonu için önemli olabilecek bazı değerler tabloyla gösterilmiştir. +
 
-image::3.png[GFBazıDeğerler]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/3.png[GFBazıDeğerler]
 
 Gaussian fonksiyonu birçok araştırma alanında kullanılmaktadır. +
 Gürültü veya bir veri için olasılık dağılımı tanımlar. +
@@ -81,23 +81,23 @@ Matematikte kullanılır. +
 
 Gaussian görüntü işlemede çalışılırken 2 boyutlu Gaussian fonksiyonuna ihtiyaç duyulmaktadır.  +
 
-image::4.png[görüntümatrisi]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/4.png[görüntümatrisi]
 
 Gaussian filtresi 2D dağılımını nokta yayılımını kullanarak çalışır. Bu konvolüsyon ile sağlanır. Gaussian filtrenin görüntü üzerinde uygulaması basitçe şu şekilde gösterilebilir. Önemli ayrıntı işlem gerçekleştirilirken kenarlıklar üzerinde gerçekleştirilmez. https://yavuzbugra.wordpress.com/2011/05/01/goruntu-islemede-filtreleme/[[1]] +
 
-image::5.png[]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/5.png[]
 
 === 4.2)Mean Filtresi
 Mean filtresi alçak geçiren filtre olarak çalışmaktadır. Alçak geçiren filtre belirli bir frekansın üzerinde kalan sinyallerin işlenmesini sağlayan filtredir. Mean filtrenin çalışma mantığı; pencerede bulunan piksel değerinin diğer tüm piksel değerlerinin ortalaması ile değiştirerek çalışır. Pencere genellikle karedir yani matris olarak düşünülürse nxn boyutunda kare matristir.
 Filtrenin çalışma mantığı bir örnekle gösterilecek olursa: +
 
-image::6.png[Pencere]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/6.png[Pencere]
 
 
 http://www.librow.com/articles/article-5[[3]] +
 
 
-image::7.png[ortalınması]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/7.png[ortalınması]
 
 === 4.3)Gradyan Operatörünün Bulunması
 Kenarların belirlenmesinde 3 adet işleç kullanılmaktadır. Sobel işleci, Prewitt işleci ve Robert işleçleridir. 
@@ -110,32 +110,32 @@ Sobel işlecinde iki adet konvolüsyon çekirdeği yer alır. Bunlar görüntü 
 ==== 4.3.2) Prewitt İşleci
 Sobel işleci gibi düşey ve yatay keskinlik sağlamaktadır. Sobel işlece göre daha basittir ama sonucunu değerlendirecek olursak biraz daha gürültü içermektedir. +
 
-image::8.png[gpiksel] 
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/8.png[gpiksel] 
 
 ==== 4.3.3) Robert İşleci
 Görüntü işlemede kullanılan en eski işleçtir. Bu işleçle sadece yatay ya da sadece düşey olarak kenarlar elde edilmektedir. Hızlı ve basit bir uygulamaya sahip olduğundan gerçek zamanlı uygulamalarda çokça tercih edilmektedir. +
 
-image::11.png[robert] 
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/11.png[robert] 
 
 Sırasıyla:Matematiksel hesaplanması gösterilirse, Konvolüsyon uygulandıktan sonra,2x2 boyutunda iki adet Gradyan operatörü elde edilmiştir http://www.intelligence.tuc.gr/~petrakis/courses/computervision/filtering.pdf[[5]].+
 
 http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_Chapter5.pdf[[11]] +
 
-image::9.png[]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/9.png[]
 
 === 4.4) Kenar İnceltme
 İşleçler ile elde edilen görüntülerde kenarlar kalındır. Kenarların bir piksel gibi ince gösterilmesi için çeşitli metotlar geliştirilmiştir. Bu yöntemlerden en başarılısı maksimum olmayan piksel değerlerinin bastırılması yöntemidir. +
 Çalışma mantığına bakılacak olursa; görüntü, görüntünün gradyanı yönünde taranır ve pikseller yerel maksimumun parçası değillerse sıfıra ayarlanır. +
 Gradyan Operatörünün Büyüklüğü: +
 
-image::12.png[gradyanoperatör]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/12.png[gradyanoperatör]
 
 Gradyan Türevinin Yönü: *θ = arctan(Gy /Gx)*  ifade edilir. +
 Gradyan Yönü: *arctan(Gy /Gx)* ile tayin edilmektedir.  +
 
 Her bir piksel için gradyan yönü hesaplandıktan sonra, elde edilen açı değeri istikametindeki iki ilave komşu piksel seçilerek, ortanca pikselin bunlardan yüksek değerde olması istenir. Bu şart sağlanmaz ise, ortanca piksel sıfıra çekilerek kenar resminden elenir. Bu şekilde, kenar resminde sadece kenarlara dik yönde maksimum gradyan değerlerine sahip olan pikseller bırakılır. +
 
-image::10.png[resim]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/10.png[resim]
 
 Bulunan Gradyan operatörünün komşuluğunun incelenmesi için öncelikle, açı değerlerinin belirlenmesi gereklidir. Bunun için de kenar ayrımlarını saptayacağımız renk açılarını kullanmalıyız. Her renk değeri belirli aralıklar içerisinde kalır. Bunları şöyle bir formül ile hesaplayacağız. Sarı aralıktaki herhangi bir kenar yönü 0 derece olarak ayarlanır. Yeşil yönde düşen herhangi bir kenar yönü 45 dereceye ayarlanır. Mavi aralıktaki herhangi bir kenar yönü 90 dereceye ayarlanır. Son olarak, kırmızı yönde kalan herhangi bir kenar yönü 135 dereceye ayarlanır. +
 
@@ -155,24 +155,24 @@ Eğer ki eşiği aşan bir komşusu yok ise sıfıra çekilerek kenar resminden 
 
 === 6.1) Uygulama Öncesi
 
-image::13.png[normal]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/13.png[normal]
 
 === 6.2) Mean Filtresi Sonrası
 
-image::14.png[mean]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/14.png[mean]
 
 === 6.3) Gradyan Büyüklüğü Hesaplandıktan Sonra
 
-image::15.1.png[bradbuy]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/15.1.png[bradbuy]
 
 
 === 6.4) Non-Maksima Baskılamadan Sonra
 
-image::16.png[nonmaksima]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/16.png[nonmaksima]
 
 === 6.5) İkili Eşikleme ve Kenar Ayrımından Sonra
 
-image::17.png[ikilieşikleme]
+image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/17.png[ikilieşikleme]
 
 == 7) REFERANSLAR
 . https://yavuzbugra.wordpress.com/2011/05/01/goruntu-islemede-filtreleme/
