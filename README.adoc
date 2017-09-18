@@ -117,7 +117,7 @@ Görüntü işlemede kullanılan en eski işleçtir. Bu işleçle sadece yatay y
 
 image::https://github.com/mervetafrali/CannyKenarBelirlemeAlgoritmasi/raw/master/11.png[robert] 
 
-Sırasıyla:Matematiksel hesaplanması gösterilirse, Konvolüsyon uygulandıktan sonra,2x2 boyutunda iki adet Gradyan operatörü elde edilmiştir http://www.intelligence.tuc.gr/~petrakis/courses/computervision/filtering.pdf[[5]].+
+Sırasıyla:Matematiksel hesaplanması gösterilirse, Konvolüsyon uygulandıktan sonra,2x2 boyutunda iki adet Gradyan operatörü elde edilmiştir http://www.intelligence.tuc.gr/~petrakis/courses/computervision/filtering.pdf[[5]]. 
 
 http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_Chapter5.pdf[[11]] +
 
